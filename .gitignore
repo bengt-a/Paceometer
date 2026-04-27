@@ -1,0 +1,20 @@
+# Build outputs
+build/
+app/build/
+*.apk
+*.aab
+
+# Gradle
+.gradle/
+local.properties
+gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.iws
+.DS_Store
+
+# Generated
+app/src/main/assets/
+captures/

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main activity: fullscreen dark, no action bar -->
+    <style name="Theme.Paceometer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="colorPrimaryVariant">#1565C0</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/accent_cyan</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Settings activity: dark with action bar for back navigation -->
+    <style name="Theme.Paceometer.Settings" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/surface</item>
+        <item name="colorPrimaryVariant">@color/bg_dark</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="colorSecondary">@color/accent_cyan</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="actionBarStyle">@style/PaceometerActionBar</item>
+        <item name="actionBarTheme">@style/PaceometerActionBarTheme</item>
+    </style>
+
+    <style name="PaceometerActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@color/surface</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="PaceometerActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/text_primary</item>
+    </style>
+
+</resources>
