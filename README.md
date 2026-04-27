@@ -60,6 +60,10 @@ The APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
 
 Requires Android SDK with API 34 build tools and Java 17.
 
+## Inspiration
+
+Inspired by [Rory Sutherland's presentations](https://www.youtube.com/shorts/MOpgVAcyIhMh) on why pace — how long a journey *feels* — matters more than raw speed.
+
 ## License
 
 Copyright © 2026 Bengt Alverborg. All rights reserved.
