@@ -1,7 +1,9 @@
 # Paceometer
 
 <p align="center">
-  <img src="docs/screenshot.jpg" alt="Paceometer screenshot" width="320">
+  <img src="docs/screenshot.jpg" alt="km/h + pace view" width="320">
+  &nbsp;&nbsp;
+  <img src="docs/screenshot_timeleft.jpg" alt="Time remaining view" width="320">
 </p>
 
 A GPS-based speedometer for Android with a clean, dark round dial. Shows speed in km/h, pace in min/10km, and estimated time to a target distance — all at a glance.
