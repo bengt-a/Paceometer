@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Paceometer</string>
-    <string name="settings">Inställningar</string>
-    <string name="display_values">Visa mätvärden</string>
-    <string name="speed_kmh">Hastighet (km/h)</string>
-    <string name="speed_kmh_desc">Visa aktuell hastighet i km/h</string>
+    <string name="settings">Settings</string>
+    <string name="display_values">Display</string>
+    <string name="speed_kmh">Speed (km/h)</string>
+    <string name="speed_kmh_desc">Show current speed in km/h</string>
     <string name="pace_min10km">Pace (min/10km)</string>
-    <string name="pace_min10km_desc">Minuter per 10 km vid aktuell hastighet</string>
-    <string name="eta_label">Tid till sträcka</string>
-    <string name="eta_desc">Beräknad restid vid aktuell hastighet</string>
-    <string name="eta_distance_label">Sträcka</string>
-    <string name="tap_to_change">Tryck för att ändra sträcka</string>
-    <string name="speed_color_arc">Hastighetsfärgad båge</string>
-    <string name="speed_color_arc_desc">Grön → gul → orange → röd efter hastighet</string>
+    <string name="pace_min10km_desc">Minutes per 10 km at current speed</string>
+    <string name="eta_label">Time to distance</string>
+    <string name="eta_desc">Estimated time at current speed</string>
+    <string name="eta_distance_label">Distance</string>
+    <string name="tap_to_change">Tap to change distance</string>
+    <string name="speed_color_arc">Speed-coloured arc</string>
+    <string name="speed_color_arc_desc">Green → yellow → orange → red by speed</string>
+    <string name="language_section">Language</string>
+    <string name="about_section">About</string>
+    <string name="gps_searching">Searching GPS…</string>
+    <string name="gps_denied">Location access denied</string>
+    <string name="gps_unavailable">GPS unavailable</string>
+    <string name="mode_time_left">↕ time left</string>
+    <string name="mode_pace_time">↕ pace + time</string>
+    <string name="eta_format">%1$d km left  →  %2$s</string>
+    <string name="eta_stopped">%1$d km left  →  ∞ min</string>
+    <string name="dialog_distance_title">Set target distance (km)</string>
+    <string name="dialog_distance_msg">The counter resets with a new distance.</string>
 </resources>

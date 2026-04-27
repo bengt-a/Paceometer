@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         ) {
             startLocationUpdates()
         } else {
-            speedometerView.gpsStatus = "Platsåtkomst nekad"
+            speedometerView.gpsStatus = getString(R.string.gps_denied)
         }
     }
 
@@ -104,10 +104,10 @@ class MainActivity : AppCompatActivity() {
             setPadding(48, 32, 48, 32)
         }
         AlertDialog.Builder(this)
-            .setTitle("Välj målsträcka (km)")
-            .setMessage("Räknaren nollställs vid ny sträcka.")
+            .setTitle(getString(R.string.dialog_distance_title))
+            .setMessage(getString(R.string.dialog_distance_msg))
             .setView(editText)
-            .setPositiveButton("OK") { _, _ ->
+            .setPositiveButton(android.R.string.ok) { _, _ ->
                 val km = editText.text.toString().toIntOrNull()
                 if (km != null && km > 0) {
                     prefs.etaDistanceKm = km
@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
                     updateEtaDisplay()
                 }
             }
-            .setNegativeButton("Avbryt", null)
+            .setNegativeButton(android.R.string.cancel, null)
             .show()
         editText.postDelayed({
             editText.requestFocus()
@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("MissingPermission")
     private fun startLocationUpdates() {
-        speedometerView.gpsStatus = "Söker GPS…"
+        speedometerView.gpsStatus = getString(R.string.gps_searching)
         try {
             locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
@@ -154,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                 locationListener
             )
         } catch (e: Exception) {
-            speedometerView.gpsStatus = "GPS ej tillgänglig"
+            speedometerView.gpsStatus = getString(R.string.gps_unavailable)
         }
     }
 
@@ -185,13 +185,13 @@ class MainActivity : AppCompatActivity() {
         if (!prefs.showEta) return
         val remaining = remainingKm()
         etaText.text = if (currentSpeedKmh < 1f) {
-            "${remaining.toInt()} km kvar  →  ∞ min"
+            getString(R.string.eta_stopped, remaining.toInt())
         } else {
             val totalMin = (remaining / currentSpeedKmh * 60).toInt()
             val h = totalMin / 60
             val m = totalMin % 60
             val time = if (h > 0) "${h}h ${m.toString().padStart(2, '0')} min" else "${m} min"
-            "${remaining.toInt()} km kvar  →  $time"
+            getString(R.string.eta_format, remaining.toInt(), time)
         }
     }
 }

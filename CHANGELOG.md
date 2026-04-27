@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2.3.0] - 2026-04-27
+
+### Added
+- **Språkväljare:** engelska (default), svenska och estniska — väljs i Inställningar och sparas persistent
+- **About-sektion:** versionsnummer och "Bengt Alverborg" längst ner i Inställningar
+- Alla synliga strängar externaliserade till `strings.xml` med fullständiga översättningar för EN/SV/ET
+
 ## [2.2.1] - 2026-04-27
 
 ### Fixed

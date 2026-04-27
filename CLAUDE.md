@@ -135,6 +135,10 @@ Format: `X.Y.Z`
 2. `CHANGELOG.md` — ny sektion överst
 3. `CLAUDE.md` — uppdatera "Aktuell version"
 
-## Aktuell version: 2.2.1
+## Aktuell version: 2.3.0
 
 Se CHANGELOG.md för fullständig versionshistorik.
+
+## Framtida features (ej implementerade)
+
+- **mph-stöd** — växla mellan km/h och mph. Kräver: ny konverteringsfaktor i GPS-koden (×2.237), skala 0–130 mph, pace i min/mile (60/mph), ETA-sträcka i miles. Aktiveras vid efterfrågan.

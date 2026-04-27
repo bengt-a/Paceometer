@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.os.LocaleListCompat
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -28,6 +32,8 @@ class SettingsActivity : AppCompatActivity() {
         val switchSpeedColor = findViewById<SwitchCompat>(R.id.switchSpeedColor)
         val etaDistRow       = findViewById<View>(R.id.etaDistanceRow)
         val etaDistEdit      = findViewById<EditText>(R.id.etaDistanceEdit)
+        val languageGroup    = findViewById<RadioGroup>(R.id.languageGroup)
+        val aboutVersion     = findViewById<TextView>(R.id.aboutVersion)
 
         // Load current settings
         switchKmh.isChecked        = prefs.showKmh
@@ -36,6 +42,20 @@ class SettingsActivity : AppCompatActivity() {
         switchSpeedColor.isChecked = prefs.speedColorArc
         etaDistEdit.setText(prefs.etaDistanceKm.toString())
         etaDistRow.visibility = if (prefs.showEta) View.VISIBLE else View.GONE
+
+        // About: show version
+        val version = packageManager.getPackageInfo(packageName, 0).versionName
+        aboutVersion.text = "Paceometer v$version"
+
+        // Language: pre-select current locale
+        val currentLang = AppCompatDelegate.getApplicationLocales().let {
+            if (it.isEmpty) "en" else it[0]!!.language
+        }
+        languageGroup.check(when (currentLang) {
+            "sv" -> R.id.radioSwedish
+            "et" -> R.id.radioEstonian
+            else -> R.id.radioEnglish
+        })
 
         // Listeners
         switchKmh.setOnCheckedChangeListener { _, checked ->
@@ -54,11 +74,19 @@ class SettingsActivity : AppCompatActivity() {
         etaDistEdit.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) saveDistance(etaDistEdit)
         }
-        // Also save when user taps away via IME
         etaDistEdit.setOnEditorActionListener { _, _, _ ->
             saveDistance(etaDistEdit)
             etaDistEdit.clearFocus()
             false
+        }
+
+        languageGroup.setOnCheckedChangeListener { _, checkedId ->
+            val tag = when (checkedId) {
+                R.id.radioSwedish  -> "sv"
+                R.id.radioEstonian -> "et"
+                else               -> "en"
+            }
+            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag))
         }
     }
 

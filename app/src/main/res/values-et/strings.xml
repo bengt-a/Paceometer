@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Paceometer</string>
+    <string name="settings">Seaded</string>
+    <string name="display_values">Näidikud</string>
+    <string name="speed_kmh">Kiirus (km/h)</string>
+    <string name="speed_kmh_desc">Näita praegust kiirust km/h</string>
+    <string name="pace_min10km">Tempo (min/10km)</string>
+    <string name="pace_min10km_desc">Minutid 10 km kohta praegusel kiirusel</string>
+    <string name="eta_label">Aeg distantsini</string>
+    <string name="eta_desc">Hinnanguline aeg praegusel kiirusel</string>
+    <string name="eta_distance_label">Distants</string>
+    <string name="tap_to_change">Puuduta distantsi muutmiseks</string>
+    <string name="speed_color_arc">Kiirusega värvitud kaar</string>
+    <string name="speed_color_arc_desc">Roheline → kollane → oranž → punane</string>
+    <string name="language_section">Keel</string>
+    <string name="about_section">Teave</string>
+    <string name="gps_searching">Otsin GPS-i…</string>
+    <string name="gps_denied">Asukoha ligipääs keelatud</string>
+    <string name="gps_unavailable">GPS pole saadaval</string>
+    <string name="mode_time_left">↕ aega jäänud</string>
+    <string name="mode_pace_time">↕ tempo + aeg</string>
+    <string name="eta_format">%1$d km jäänud  →  %2$s</string>
+    <string name="eta_stopped">%1$d km jäänud  →  ∞ min</string>
+    <string name="dialog_distance_title">Seadista sihtdistants (km)</string>
+    <string name="dialog_distance_msg">Loendur lähtestatakse uue distantsiga.</string>
+</resources>

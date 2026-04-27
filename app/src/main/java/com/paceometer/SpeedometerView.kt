@@ -395,8 +395,8 @@ class SpeedometerView @JvmOverloads constructor(
         // Mode indicator: shows current inner ring mode
         val modeLabel = when (innerRingMode) {
             InnerRingMode.KMH -> "↕ km/h"
-            InnerRingMode.TIME_TO_DISTANCE -> "↕ tid kvar"
-            InnerRingMode.PACE_AND_TIME -> "↕ pace + tid"
+            InnerRingMode.TIME_TO_DISTANCE -> context.getString(R.string.mode_time_left)
+            InnerRingMode.PACE_AND_TIME -> context.getString(R.string.mode_pace_time)
         }
         canvas.drawText(modeLabel, cx, cy + radius * 0.47f, modePaint)
     }

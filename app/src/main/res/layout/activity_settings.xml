@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:paddingBottom="32dp">
 
-        <!-- Section header -->
+        <!-- Section header: display -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -221,6 +221,103 @@
                 android:text="km"
                 android:textColor="#A0A0B8"
                 android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- ── Language section ───────────────────────────────────────────── -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp"
+            android:text="@string/language_section"
+            android:textColor="#606078"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1" />
+
+        <RadioGroup
+            android:id="@+id/languageGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#14142A"
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
+
+            <RadioButton
+                android:id="@+id/radioEnglish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp"
+                android:text="English"
+                android:textColor="#D0D0E8"
+                android:textSize="16sp"
+                android:buttonTint="#00BCD4" />
+
+            <RadioButton
+                android:id="@+id/radioSwedish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp"
+                android:text="Svenska"
+                android:textColor="#D0D0E8"
+                android:textSize="16sp"
+                android:buttonTint="#00BCD4" />
+
+            <RadioButton
+                android:id="@+id/radioEstonian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp"
+                android:text="Eesti"
+                android:textColor="#D0D0E8"
+                android:textSize="16sp"
+                android:buttonTint="#00BCD4" />
+
+        </RadioGroup>
+
+        <!-- ── About section ──────────────────────────────────────────────── -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp"
+            android:text="@string/about_section"
+            android:textColor="#606078"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#14142A"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="16dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/aboutVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D0D0E8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Bengt Alverborg"
+                android:textColor="#55556A"
+                android:textSize="14sp" />
+
         </LinearLayout>
 
     </LinearLayout>
