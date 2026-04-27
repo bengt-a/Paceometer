@@ -100,7 +100,8 @@ class SpeedometerView @JvmOverloads constructor(
     // ─── Paints ───────────────────────────────────────────────────────────────
 
     private val bgPaint             = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val ringPaint           = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val bezelPaint          = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val bezelEdgePaint      = Paint(Paint.ANTI_ALIAS_FLAG)
     private val trackPaint          = Paint(Paint.ANTI_ALIAS_FLAG)
     private val activePaint         = Paint(Paint.ANTI_ALIAS_FLAG)
     private val minorTickPaint      = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -139,10 +140,15 @@ class SpeedometerView @JvmOverloads constructor(
             style = Paint.Style.FILL
             color = Color.parseColor("#0A0A14")
         }
-        ringPaint.apply {
+        bezelPaint.apply {
             style = Paint.Style.STROKE
-            strokeWidth = radius * 0.007f
-            color = Color.parseColor("#22223A")
+            strokeWidth = radius * 0.022f
+            strokeCap = Paint.Cap.BUTT
+        }
+        bezelEdgePaint.apply {
+            style = Paint.Style.STROKE
+            strokeWidth = radius * 0.003f
+            color = Color.parseColor("#0A0A18")
         }
         trackPaint.apply {
             style = Paint.Style.STROKE
@@ -177,6 +183,7 @@ class SpeedometerView @JvmOverloads constructor(
             color = Color.parseColor("#4DD0E1")
             textAlign = Paint.Align.CENTER
             textSize = radius * 0.100f
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         }
         bigNumPaint.apply {
             color = Color.WHITE
@@ -202,7 +209,7 @@ class SpeedometerView @JvmOverloads constructor(
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         }
         modePaint.apply {
-            color = Color.parseColor("#3A3A60")
+            color = Color.parseColor("#7878A8")
             textAlign = Paint.Align.CENTER
             textSize = radius * 0.07f
         }
@@ -247,7 +254,28 @@ class SpeedometerView @JvmOverloads constructor(
 
     private fun drawBackground(canvas: Canvas) {
         canvas.drawCircle(cx, cy, radius, bgPaint)
-        canvas.drawCircle(cx, cy, radius * 0.975f, ringPaint)
+        drawBezel(canvas)
+    }
+
+    private fun drawBezel(canvas: Canvas) {
+        val bezelR = radius * 0.975f
+        val halfW  = radius * 0.011f
+        bezelPaint.shader = SweepGradient(
+            cx, cy,
+            intArrayOf(
+                Color.parseColor("#2A2A42"),
+                Color.parseColor("#1A1A28"),
+                Color.parseColor("#303050"),
+                Color.parseColor("#545470"),
+                Color.parseColor("#D0D0EC"),
+                Color.parseColor("#E8E8FF"),
+                Color.parseColor("#2A2A42")
+            ),
+            floatArrayOf(0.0f, 0.15f, 0.25f, 0.50f, 0.72f, 0.86f, 1.0f)
+        )
+        canvas.drawCircle(cx, cy, bezelR, bezelPaint)
+        canvas.drawCircle(cx, cy, bezelR + halfW, bezelEdgePaint)
+        canvas.drawCircle(cx, cy, bezelR - halfW, bezelEdgePaint)
     }
 
     private fun drawTrack(canvas: Canvas) {
@@ -313,8 +341,8 @@ class SpeedometerView @JvmOverloads constructor(
 
     private fun drawScaleLabels(canvas: Canvas) {
         val kmhValues = listOf(0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200)
-        val innerR = radius * 0.62f
-        val outerR = radius * 0.92f
+        val innerR = radius * 0.57f
+        val outerR = radius * 0.88f
 
         for (kmh in kmhValues) {
             val frac = kmh.toFloat() / MAX_SPEED
@@ -404,7 +432,7 @@ class SpeedometerView @JvmOverloads constructor(
     private fun drawBothCenter(canvas: Canvas) {
         val bigH   = bigNumPaint.textSize * 0.72f
         val unitH  = unitPaint.textSize * 1.15f
-        val gapH   = radius * 0.10f
+        val gapH   = radius * 0.14f
         val pace1H = paceSmallPaint.textSize * 1.10f
         val pace2H = paceSmallPaint.textSize * 0.90f
         val totalH = bigH + unitH + gapH + pace1H + pace2H

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [2.4.0] - 2026-04-27
+
+### Changed
+- **Stiliserad bezel:** ersätter den platta ringen med en metallisk SweepGradient-bezel med ljushöjdpunkt vid 12-positionen och subtila kantlinjer
+- **Yttre ring bold:** siffrorna i den yttre ringen (pace/km/h) är nu fetstilta
+- **Yttre ring inflyttad:** etiketter på yttre ringen inflyttade (0.92 → 0.88) så de inte nuddar bezel
+- **Inre ring inflyttad:** etiketter på inre ringen inflyttade (0.62 → 0.57) med mer luft till strecken
+- **Pace i centrum nedflyttad:** "x.y min / 10 km" ytterligare nedflyttad (gap 0.10 → 0.14)
+- **Lägesindikator synligare:** textfärg uppljusad (#3A3A60 → #7878A8)
+- **Svenska strängar:** "Pace" → "Tempo", "Tid till sträcka" → "Tid för sträcka", "Om" → "Om appen"
+
 ## [2.3.0] - 2026-04-27
 
 ### Added

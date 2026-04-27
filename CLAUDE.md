@@ -135,7 +135,7 @@ Format: `X.Y.Z`
 2. `CHANGELOG.md` — ny sektion överst
 3. `CLAUDE.md` — uppdatera "Aktuell version"
 
-## Aktuell version: 2.3.0
+## Aktuell version: 2.4.0
 
 Se CHANGELOG.md för fullständig versionshistorik.
 
